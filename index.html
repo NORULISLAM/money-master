@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>money save</title>
+    <!-- vanila css link   -->
+    <link rel="stylesheet" href="index.css">
     <!-- tailwind css link -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -49,21 +51,30 @@
                 </div>
 
                 <button id="calc-btn" class="bg-indigo-500 px-4 py-2 rounded text-white font-medium">calculator</button>
+                <!-- error-message -->
+                <div>
+                    <p id="error">Please input correct number... </p>
+                    <p id="error-2">Don't try flase input. </p>
+                </div>
 
                 <h1 class="text-xl py-2">Total Expenses: <span id="total-expenses">000</span></h1>
                 <h1 class="text-xl py-2">Balance: <span id="balance-update">000</span></h1>
                 <div>
                     <label for="">Save:</label>
-                    <input class=" mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg" type="text"
-                        placeholder="save amount">%
-                    <button id="" class="bg-indigo-500 px-4 py-2 rounded text-white font-medium">Save</button>
+                    <input id="save-input" class=" mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg"
+                        type="text" placeholder="save amount">%
+                    <button id="save-button"
+                        class="bg-indigo-500 px-4 py-2 rounded text-white font-medium">Save</button>
                 </div>
-                <h1 class="text-xl py-2">Saving Amount: 1000</h1>
-                <h1 class="text-xl py-2">Remaing Balance: 3000</h1>
+                <h1 class="text-xl py-2">Saving Amount: <span id="savings-amount">000</span></h1>
+                <h1 class="text-xl py-2">Remaing Balance: <span id="remaining-balance">000</span></h1>
             </div>
+
+
 
         </section>
     </main>
+    <!-- js link add -->
     <script src="js/moneySaving.js"></script>
     <!-- <script src="js/pactis.js"></script> -->
 </body>

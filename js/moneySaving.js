@@ -1,45 +1,106 @@
+function subAmount(num1, num2) {
+    let sub = num1 - num2;
+    return sub;
+}
+function percentageCalculate(amount, percent) {
+    var percentageAmount = amount * (percent / 100);
+    return percentageAmount;
+
+}
+// error control
+function error1Able() {
+    document.getElementById('error').style.display = 'block';
+}
+function error1Disable() {
+    document.getElementById('error').style.display = 'none';
+}
+// error 2 control
+function error2Able() {
+    document.getElementById('error-2').style.display = 'block';
+}
+function error2Disable() {
+    document.getElementById('error-2').style.display = 'none';
+}
+
+
+//calculate button
 document.getElementById('calc-btn').addEventListener('click', function () {
-    const foodInput = document.getElementById('food-input')
-    const foodAmountText = foodInput.value;
-    const foodAmount = parseFloat(foodAmountText);
+    // get income input  
+    const incomeField = document.getElementById('income-input');
+    const incomeAmount = parseFloat(incomeField.value);
+    //get expenses
+    const foodField = document.getElementById('food-input');
+    const foodAmount = parseFloat(foodField.value);
+    const rentField = document.getElementById('rent-input');
+    const rentAmount = parseFloat(rentField.value);
+    const clothesField = document.getElementById('cloth-input');
+    const clothesAmount = parseFloat(clothesField.value);
+    // get expenses  current balance
+    const expensesField = document.getElementById('total-expenses');
+    const balanceField = document.getElementById('balance-update');
 
-    //rent cost
-    const rentInput = document.getElementById('rent-input')
-    const rentAmountText = rentInput.value;
-    const rentAmount = parseFloat(rentAmountText);
+    // calculate button error handle ... 
+    if (incomeAmount >= 0 && foodAmount >= 0 && rentAmount >= 0 && clothesAmount >= 0) {
+        // sum of all expenses and total  amount
+        const totalExpenses = foodAmount + rentAmount + clothesAmount;
+        expensesField.innerText = totalExpenses;
+        error2Disable();
 
-    //cloth cost
-    const clothInput = document.getElementById('cloth-input')
-    const clothAmountText = clothInput.value;
-    const clothAmount = parseFloat(clothAmountText);
-    //get total expenses
-    const expensesTotal = document.getElementById('total-expenses');
-    const expensesTotalText = expensesTotal.innerText;
-    const previousExpensesTotal = parseFloat(expensesTotalText);
-    expensesTotal.innerText = foodAmount + rentAmount + clothAmount;
+        //  error handle 
+        if (incomeAmount > totalExpenses) {
+            //calculate current balance  current balance
+            const balance = subAmount(incomeAmount, totalExpenses);
+            balanceField.innerText = balance;
+            error1Disable();
+        }
+        else {
+            error2Able();
+            error1Disable();
+        }
+    }
+    else {
+        error1Able();
+        error2Disable();
+        expensesField.innerText = '00';
+        balanceField.innerText = '00';
+    }
 
-    // get income 
-    const incomeInput = document.getElementById('income-input')
-    const incomeAmountText = incomeInput.value;
-    const incomeAmount = parseFloat(incomeAmountText);
-    // //get total expenses
-    // const expensesInput = document.getElementById('total-expenses');
-    // const expensesAmountText = expensesInput.value;
-    // const expensesAmount = parseFloat(expensesAmountText);
-    //get current blance
-    const balanceTotal = document.getElementById('balance-update');
-    const balanceTotalText = balanceTotal.innerText;
-    const previousBalanceTotal = parseFloat(balanceTotalText);
+})
+// save button action form 
+document.getElementById('save-button').addEventListener('click', function () {
+    //get income 
+    const incomeAmount = document.getElementById('income-input').value;
+    //get balance without expenses
+    const afterExpensesBalance = parseFloat(document.getElementById('balance-update').innerText);
+    //get save inputFild & its value
+    const saveInputField = document.getElementById('save-input');
+    const savePercentageValue = parseFloat(saveInputField.value);
+    // get savings amount and remainging field
+    const savingsField = document.getElementById('savings-amount');
+    const remaingingField = document.getElementById('remaining-balance');
+    if (savePercentageValue >= 0) {
+        // calculation savings & inject 
+        const savingsAmount = percentageCalculate(incomeAmount, savePercentageValue);
+        savingsField.innerText = savingsAmount;
+        if (afterExpensesBalance < savingsAmount) {
+            error2Able();
+            error1Disable();
+        }
+        else {
 
-    balanceTotal.innerText = incomeAmount - (foodAmount + rentAmount + clothAmount);
+            const remaingingbalance = subAmount(afterExpensesBalance, savingsAmount);
+            remaingingField.innerText = remaingingbalance;
+            error1Disable();
+        }
 
-    //reset input field
-    incomeInput.value = '';
-    foodInput.value = '';
-    rentInput.value = '';
-    clothInput.value = '';
+    }
+    else {
+        error1Able();
+        error2Disable();
+    }
+
+})
 
 
 
-});
 
