@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>money save</title>
+    <!-- tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <main class="m-4 p-2">
+        <header>
+            <h1 class=" text-4xl text-center text-amber-900 py-6">Savings calculator <span>
+
+                </span></h1>
+        </header>
+        <section class="grid gap-4 grid-cols-2 mx-auto">
+            <div><img src="money.jpg" alt="" srcset="">
+            </div>
+            <div class="bg-slate-100 text-center">
+                <h1 class="text-xl py-2">Income</h1>
+                <div>
+                    <label for="">Income:</label>
+                    <input id="'income-input'"
+                        class="mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg" type="text"
+                        placeholder="input your total income">
+                </div>
+                <h1 class="text-2xl py-2">Expenses</h1>
+
+                <div>
+                    <label for="">Food:</label>
+                    <input id="food-input" class="mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg"
+                        type="text" placeholder="input your food Expenses">
+                </div>
+                <div>
+                    <label for="">Rent:</label>
+                    <input id="rent-input" class=" mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg"
+                        type="text" placeholder="input your rent Expenses">
+                </div>
+                <div>
+                    <label for="">Clothes:</label>
+                    <input id="cloth-input"
+                        class=" mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg" type="text"
+                        placeholder="input your rent Expenses">
+                </div>
+
+                <button id="calc-btn" class="bg-indigo-500 px-4 py-2 rounded text-white font-medium">calculator</button>
+
+                <h1 class="text-xl py-2">Total Expenses: <span id="total-expenses">2000</span></h1>
+                <h1 class="text-xl py-2">Balance: 5500</h1>
+                <div>
+                    <label for="">Save:</label>
+                    <input class=" mb-4 px-4 border-black bg-slate-300 border-solid border-3 rounded-lg" type="text"
+                        placeholder="save amount">%
+                    <button id="" class="bg-indigo-500 px-4 py-2 rounded text-white font-medium">Save</button>
+                </div>
+                <h1 class="text-xl py-2">Saving Amount: 1000</h1>
+                <h1 class="text-xl py-2">Remaing Balance: 3000</h1>
+            </div>
+
+        </section>
+    </main>
+    <script src="js/moneySaving.js"></script>
+    <!-- <script src="js/pactis.js"></script> -->
+</body>
+
+</html>
